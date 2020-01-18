@@ -1,1 +1,46 @@
+
 # SOEN-341_Totally_Not_Instagram
+
+## Objective 
+
+Develope Instagram like web application called "Totally Not Instagram".
+
+## Projective Description
+
+In ervery day of our life, we communicate with friends using social midea application. sharing picture is one of the very useful
+ways recaling memory and aslo commnunicate with other people.At the Totally Not Instagram web application, user can post communicate with 
+others sharing picture and also they can see verious feedback from the user based on theri uploded picture.
+
+## Core Features
+
+* Upload a picture.
+* Comment on the uploaded picture.
+* Follow a user.
+
+## Potential Features
+
+* Reply to comment.
+* Like a picture.
+
+## Team Members
+
+| Name                          | Github e-mail                                       | Github username    
+|--------------------           |-------------------------------                      |-----------------
+|                               |                                                     |
+|                               |                                                     |
+|                               |                                                     |
+|                               |                                                     |
+|                               |                                                     |
+|                               |                                                     |
+
+## Technologies/Tools
+
+* Goole Cloud
+* HTML
+* Javascript
+* CSS
+* Python
+* Django framework
+* XAMPP
+* Apache
+* MySQL or SQLite
