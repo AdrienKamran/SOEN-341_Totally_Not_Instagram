@@ -26,7 +26,7 @@ others sharing picture and also they can see verious feedback from the user base
 
 | Name                          | Github e-mail                                       | Github username    
 |--------------------           |-------------------------------                      |-----------------
-|                               |                                                     |
+| Adrien Kamran                 | Adrien.Kamran@gmail.com                             | AdrienKamran
 |                               |                                                     |
 |                               |                                                     |
 |                               |                                                     |
