@@ -27,7 +27,7 @@ others sharing picture and also they can see verious feedback from the user base
 | Name                          | Github e-mail                                       | Github username    
 |--------------------           |-------------------------------                      |-----------------
 |Muhamma Shah Newaz             |abir_mtl@hotmail.com                                 |abirshah
-|                               |                                                     |
+|Qandeel Arshad                 |qandeelsphotos@gmail.com                             |qandeelarshad
 |                               |                                                     |
 |                               |                                                     |
 |                               |                                                     |
