@@ -1,0 +1,48 @@
+{% extends '_base.html' %}
+
+{% load socialaccount %}
+
+{% block content %}
+<!-- also has url account_login -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-auto">
+            <h2>Login</h2>
+            
+            <form method="POST">
+                <!-- form.as_p -->
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group fieldWrapper">
+                    {{ field.label_tag }} {{ field }}
+                </div>
+                {{ field.errors }}
+                {% if field.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+                {% endif %}
+                {% endfor %}
+            
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="col-sm">
+            <div class="btn-group" role="group" aria-label="External Login">
+                <a class="btn btn-outline-dark" href="{% provider_login_url 'google' %}">
+                    Google
+                    <img src="https://img.pngio.com/google-logo-background-png-download-28002800-free-transparent-google-logo-transparent-900_900.jpg"
+                        alt="Instagram" class="img-thumbnail rounded-circle" style="width: 5%;">
+                </a>
+                <a class="btn btn-outline-dark" href="{% provider_login_url 'instagram' %}">
+                    Instagram
+                    <img src="https://www.freepnglogos.com/uploads/instagram-logo-png-transparent-0.png" alt="Instagram"
+                        class="img-thumbnail rounded-circle" style="width: 7%;">
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock %}
