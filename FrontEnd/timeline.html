@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+<head>
+	<script src="dmxAppConnect/dmxAppConnect.js"></script>
+	<meta charset="UTF-8">
+	<title>Untitled Document</title>
+	<script src="js/jquery-3.4.1.slim.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="bootstrap/4/simplex/bootstrap.min.css" />
+	<script src="dmxAppConnect/dmxBootstrap4Navigation/dmxBootstrap4Navigation.js" defer=""></script>
+	<script src="dmxAppConnect/dmxBootstrap4Modal/dmxBootstrap4Modal.js" defer=""></script>
+</head>
+
+<body onload="modal-loggedin" is="dmx-app" id="timeline">
+
+	<header class="bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<nav class="navbar navbar-expand-lg navbar-light bg-light">
+						<img src="TNI_Assets/TNI-Logo.png" class="navbar-brand mr-auto" href="#" width="55">
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1_collapse" aria-controls="navbar1_collapse" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse justify-content-end" id="navbar1_collapse">
+							<div class="navbar-nav">
+								<a class="nav-item nav-link active" href="#">Home</a>
+								<a class="nav-item nav-link" href="#">About</a>
+								<a class="nav-item nav-link" href="#">Contact</a>
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="container wappler-block pt-3 pb-3">
+		<div class="modal" id="modal-loggedin" is="dmx-bs4-modal" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+						<p class="text-center text-success"><i class="fas fa-check-circle fa-6x"></i></p>
+						<h4 class="text-center font-weight-light">Welcome! You have logged in.</h4>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="bootstrap/4/js/popper.min.js"></script>
+	<script src="bootstrap/4/js/bootstrap.min.js"></script>
+</body>
+
+</html>
