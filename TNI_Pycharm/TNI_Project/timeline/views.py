@@ -21,6 +21,11 @@ def home(request):
     context = {
         'posts': posts
     }
-    return render(request, "timeline/home_test.html", context)
+    return render(request, "timeline/base.html", context)
+def register(request):
+        context = {
+            'posts': posts
+        }
+        return render(request, "timeline/base.html", context)
 def about(request):
     return HttpResponse("<h1>This is the About page.<h1>")
