@@ -8,7 +8,12 @@
             <div class="card-body">
                 <h4 class="card-title">{{post.author}}</h4>
                 <p class="card-text">Posted on {{post.timestamp}} || {{ post.caption }}</p>
-                <a href="#" class="btn btn-primary">LIKE BUTTON</a>
+                <form action="" id="usrform">
+                    <textarea rows="2.5" cols="40" name="comment" form="usrform">
+                    </textarea></br>
+                     <input type="Submit" value="Comment">
+                 </form>
+                <a href="#" class="btn btn-primary">Like</a>
             </div>
         </div>
     {% endfor %}
