@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from . import forms
 
 # Create your views here.
 
@@ -16,11 +17,21 @@ posts = [
     }
 ]
 
+def index(request):
+    context = {
+       'posts': posts
+    }
+    return render(request, "timeline/base.html",context)
 
 def home(request):
     context = {
-        'posts': posts
+       'posts': posts
     }
-    return render(request, "timeline/home_test.html", context)
+    return render(request, "timeline/home_test.html",context)
+
+def register(request):
+        form = forms.registrationForm()
+        return render(request, 'timeline/user_registration.html', {'form':form})
+
 def about(request):
     return HttpResponse("<h1>This is the About page.<h1>")
