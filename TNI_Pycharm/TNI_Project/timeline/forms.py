@@ -2,5 +2,5 @@ from django import forms
 
 class registrationForm(forms.Form):
     username = forms.CharField()
-    email = forms.EmailField()
+    email    = forms.EmailField()
     password = forms.CharField()
