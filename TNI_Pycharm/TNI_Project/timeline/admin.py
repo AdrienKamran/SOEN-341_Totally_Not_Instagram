@@ -1,3 +1,6 @@
 from django.contrib import admin
+from timeline.models import userProfile, Image
 
-# Register your models here.
+admin.site.register(userProfile)
+
+admin.site.register(Image)
