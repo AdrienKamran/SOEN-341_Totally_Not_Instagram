@@ -1,14 +1,46 @@
 {% extends "timeline/base.html" %}
 {% load static %}
 {% block content %}
+  <form method = "post" enctype="multipart/form-data" action="imageupload/">
+      {% csrf_token %}
+      <input type="textarea" name="name">
+      <input type="file" name="Img">
+      <button type="submit">Upload Pic</button>
+  </form>
+
+  <ul>
+      {% for post in posts %}
+      <div class="card mb-4">
+        <h2>{{ post.name }}</h2>
+        <img src="{{ post.Img.url}}" alt="{{ post.name }}" height="90" width="90">
+      </div>
+      {% endfor %}
+  </ul>
+
     {% for post in posts %}
         <div class="card mb-4">
-            <div class="card-header">Something goes here?</div>
-            <img src="{% static 'timeline/TNI_Assets/timeline_image.png' %}" class="card-img-top" alt="Card image cap">
+        <!--  <div class="card-header">Something goes here?</div> -->
+        <!--  <img src="{% static 'timeline/TNI_Assets/timeline_image.png' %}" class="card-img-top" alt="Card image cap">
+           -->
             <div class="card-body">
                 <h4 class="card-title">{{post.author}}</h4>
                 <p class="card-text">Posted on {{post.timestamp}} || {{ post.caption }}</p>
-                <a href="#" class="btn btn-primary">LIKE BUTTON</a>
+                <ul>
+                    {% for post in posts %}
+                    <div class="card mb-4">
+                      <h2>{{ post.name }}</h2>
+                      <img src="{{ post.Img.url}}" alt="{{ post.name }}" height="90" width="90">
+                      <form action="" id="usrform">
+                          <textarea rows="2.5" cols="40" name="comment" form="usrform">
+                          </textarea></br>
+                           <input type="Submit" value="Comment">
+                       </form>
+                      <a href="#" class="btn btn-primary">Like</a>
+                    </div>
+                    {% endfor %}
+
+                </ul>
+
             </div>
         </div>
     {% endfor %}
