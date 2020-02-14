@@ -18,6 +18,7 @@
 			<div class="col-12 col-xl-4 offset-xl-4 text-center col-md-6 offset-md-3 col border rounded rounded-lg">
 				<img class="wappler-type-user rounded-circle mb-4 img-fluid" src="{% static 'timeline/TNI_Assets/TNI-Title.png' %}" width="400">
 				<form id="form1" method="POST" action="registeruser/">
+					{% csrf_token %}
                     {% for field in form %}
                         <div class="form-group">
                             {{ field }}
