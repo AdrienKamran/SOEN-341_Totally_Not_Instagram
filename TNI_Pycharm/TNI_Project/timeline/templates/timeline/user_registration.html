@@ -1,20 +1,40 @@
+{% load static %}
+
+<doctype html>
 <html>
-   <head>
-     <meta charset="utf-8">
-     <title>Registration</title>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-   </head>
-   <body>
-     <h1>Fill out the form</h1>
-     <div class="container">
-       <form method= "POST" action="registeruser/">
 
-       {{form.as_p}}
-       {% csrf_token %}
+<head>
+	<meta charset="UTF-8">
+	<title>Registration</title>
+	<script src="{% static 'timeline/js/jquery-3.4.1.slim.min.js' %}"></script>
+	<link rel="stylesheet" href="{% static 'timeline/fontawesome4/css/font-awesome.min.css' %}" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="{% static 'timeline/bootstrap/4/united/bootstrap.min.css' %}" />
+</head>
 
+<body>
+	<div class="container wappler-block pt-3 pb-3">
+		<div class="row text-center">
+			<div class="col-12 col-xl-4 offset-xl-4 text-center col-md-6 offset-md-3 col border rounded rounded-lg">
+				<img class="wappler-type-user rounded-circle mb-4 img-fluid" src="{% static 'timeline/TNI_Assets/TNI-Title.png' %}" width="400">
+				<form id="form1" method="POST" action="registeruser/">
+					{% csrf_token %}
+                    {% for field in form %}
+                        <div class="form-group">
+                            {{ field }}
+                        </div>
+                    {% endfor %}
 
-       <input type="submit" class="btn btn-primary" value="Register">
-       </form>
-     </div>
-   </body>
+					<input class="btn btn-primary mb-sm-3 w-100" type="submit" value="Register">
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script src="{% static 'timeline/bootstrap/4/js/popper.min.js' %}"></script>
+	<script src="{% static 'timeline/bootstrap/4/js/bootstrap.min.js' %}"></script>
+</body>
+
 </html>
+</doctype>
