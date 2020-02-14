@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="bootstrap/4/simplex/bootstrap.min.css" />
 	<script src="dmxAppConnect/dmxBootstrap4Navigation/dmxBootstrap4Navigation.js" defer=""></script>
 	<script src="dmxAppConnect/dmxBootstrap4Modal/dmxBootstrap4Modal.js" defer=""></script>
+	<script src="dmxAppConnect/dmxBootstrap4Collapse/dmxBootstrap4Collapse.js" defer=""></script>
 </head>
 
 <body onload="modal-loggedin" is="dmx-app" id="timeline">
@@ -50,18 +51,83 @@
 			</div>
 		</div>
 	</div>
+	<div class="container mb-3 border rounded w-75">
+		<form id="form2">
+			<div class="form-row mt-3">
+				<h1>Title</h1>
+			</div>
+			<div class="form-row">
+				<div class="col">
+					<div class="row">
+						<div class="col">
+							<small id="bs4-form-group-help1" class="form-text text-muted">Your great help text.</small>
+						</div>
+					</div>
+					<div class="row mb-1">
+						<div class="col">
+							<input id="text2" name="text2" type="text" class="form-control">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<small id="bs4-form-group-help2" class="form-text text-muted">Your great help text.</small>
+						</div>
+					</div>
+					<div class="row mb-2">
+						<div class="col">
+							<input id="text3" name="text3" type="text" class="form-control">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<small id="bs4-form-group-help3" class="form-text text-muted">Your great help text.</small>
+						</div>
+					</div>
+					<div class="row mb-xl-2">
+						<div class="col"><input id="file1" name="file1" type="file" class="form-control-file"></div>
+					</div>
+
+					<div class="row mb-3">
+						<div class="col offset-0 w-auto">
+							<button class="btn bg-info mr-1 w-25 text-white">Upload Your Image</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
 	<main>
 		<div class="container wappler-block">
 			<div class="row">
 				<div class="col-12 col-md-8 col-xl-9 mb-3">
-					<div class="card">
+					<div class="card mb-3">
 						<div class="card-header">Featured</div>
-						<img class="card-img-top" alt="Card image cap">
+						<img class="card-img-top w-100" alt="Card image cap">
 						<div class="card-body">
+							<table class="table">
+								<tbody>
+									<tr>
+										<td class="w-25">
+											<div class="container">
+												<img src="TNI_Assets/TNI-Logo.png" class="w-100 h-100">
+											</div>
+										</td>
+										<td valign="middle" class="w-75 h-auto">
+											<h4 class="font-weight-bold align-self-center h-100">Otto</h4>
+										</td>
+									</tr>
+								</tbody>
+							</table>
 							<h4 class="card-title">Card title</h4>
 							<p class="text-left text-muted">Enter your content here</p>
 							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 							<a href="#" class="btn btn-primary">Go somewhere</a>
+							<hr>
+							<div class="container mt-3 w-100">
+								<form id="form1"><textarea id="text1" class="form-control" dmx-bind:placeholder="Have some thoughts about this post? Comment here!"></textarea>
+									<button class="btn bg-info mt-3 text-white">Submit Comment
+									</button></form>
+							</div>
 						</div>
 					</div>
 				</div>

@@ -1,47 +1,84 @@
 {% extends "timeline/base.html" %}
 {% load static %}
 {% block content %}
-  <form method = "post" enctype="multipart/form-data" action="imageupload/">
-      {% csrf_token %}
-      <input type="textarea" name="name">
-      <input type="file" name="Img">
-      <button type="submit">Upload Pic</button>
-  </form>
 
-  <ul>
-      {% for post in posts %}
-      <div class="card mb-4">
-        <h2>{{ post.name }}</h2>
-        <img src="{{ post.Img.url}}" alt="{{ post.name }}" height="90" width="90">
-      </div>
-      {% endfor %}
-  </ul>
+	<div class="container mb-3 border rounded w-100">
+		<form id="form2" method="post" enctype="multipart/form-data" action="imageupload/">
+            {% csrf_token %}
+			<div class="form-row mt-3">
+				<h1>Create Your Post Here!</h1>
+			</div>
+			<div class="form-row">
+				<div class="col">
+					<div class="row">
+						<div class="col">
+							<small id="bs4-form-group-help1" class="form-text text-muted">First, choose your image's name.</small>
+						</div>
+					</div>
+					<div class="row mb-1">
+						<div class="col">
+							<input id="text2" name="name" type="text" class="form-control">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<small id="bs4-form-group-help2" class="form-text text-muted">Next, choose the post's caption.</small>
+						</div>
+					</div>
+					<div class="row mb-2">
+						<div class="col">
+							<input id="text3" name="caption" type="text" class="form-control">
+						</div>
+					</div>
+					<div class="row mb-1">
+						<div class="col">
+							<small id="bs4-form-group-help3" class="form-text text-muted">Lastly, upload your image!</small>
+						</div>
+					</div>
+					<div class="row mb-2">
+						<div class="col"><input id="file1" name="Img" type="file" class="form-control-file"></div>
+					</div>
+
+					<div class="row mb-3">
+						<div class="col offset-0 w-auto">
+							<button type="submit" class="btn bg-info mr-1 w-100 text-white">Create Post</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
 
     {% for post in posts %}
-        <div class="card mb-4">
-        <!--  <div class="card-header">Something goes here?</div> -->
-        <!--  <img src="{% static 'timeline/TNI_Assets/timeline_image.png' %}" class="card-img-top" alt="Card image cap">
-           -->
+        <div class="card mb-3">
+            <img class="card-img-top w-100" src="{{ post.Img.url }}" alt="{{ post.name }}">
             <div class="card-body">
-                <h4 class="card-title">{{post.author}}</h4>
-                <p class="card-text">Posted on {{post.timestamp}} || {{ post.caption }}</p>
-                <ul>
-                    {% for post in posts %}
-                    <div class="card mb-4">
-                      <h2>{{ post.name }}</h2>
-                      <img src="{{ post.Img.url}}" alt="{{ post.name }}" height="90" width="90">
-                      <form action="" id="usrform">
-                          <textarea rows="2.5" cols="40" name="comment" form="usrform">
-                          </textarea></br>
-                           <input type="Submit" value="Comment">
-                       </form>
-                      <a href="#" class="btn btn-primary">Like</a>
-                    </div>
-                    {% endfor %}
-
-                </ul>
-
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td class="w-25">
+                                <div class="container">
+                                    <img src="{% static 'timeline/TNI_Assets/TNI-Logo.png' %}" class="w-50 h-50">
+                                </div>
+                            </td>
+                            <td valign="middle" class="w-75 h-auto">
+                                <h4 class="card-title align-self-center">[POST AUTHOR]</h4>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-left text-muted">Posted on [TIMESTAMP]</p>
+                <p class="card-text">{{ post.name }}</p>
+                <a href="#" class="btn btn-primary">LIKE</a>
+                <hr>
+                <div class="container mt-3 w-100">
+                    <form id="usrform" action="">
+                        <textarea  name="Comment" form="usrform" id="text1" class="form-control" dmx-bind:placeholder="Have some thoughts about this post? Comment here!"></textarea>
+                        <button type="submit" value="Comment" form="usrform" class="btn bg-info mt-3 text-white">Submit Comment</button>
+                    </form>
+                </div>
             </div>
         </div>
     {% endfor %}
+
 {% endblock content %}
