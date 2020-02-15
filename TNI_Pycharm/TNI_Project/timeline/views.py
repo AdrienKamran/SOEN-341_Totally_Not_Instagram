@@ -6,20 +6,7 @@ from timeline.forms import userProfileForm,userForm, ImageForm
 from timeline.models import Image
 from django.views.generic import ListView
 
-# Create your views here.
 
-posts = [
-    {
-        'author': 'Adrien Kamran',
-        'caption': 'This is a test post!',
-        'timestamp': '2/2/2020'
-    },
-    {
-        'author': 'Nicolas Kamran',
-        'caption': 'This is the second test post!',
-        'timestamp': '2/2/2020'
-    }
-]
 
 def index(request):
     context = {
@@ -70,7 +57,7 @@ def image_view(request):
         if form.is_valid():
             print("SUCCESS IS COMING")
             form.save()
-            return HttpResponse('successfully uploaded')
+            return HttpResponseRedirect('/home/')
         else:
             print("FAILURE IS COMING")
     else:
@@ -81,6 +68,6 @@ def image_view(request):
 def home(request):
     model = Image
     context = {
-       'posts': model.objects.all()
+       'posts': model.objects.reverse()
     }
     return render(request, "timeline/home_test.html",context)
