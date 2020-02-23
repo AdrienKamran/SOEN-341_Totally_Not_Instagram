@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'timeline.apps.TimelineConfig',
+    'login.apps.LoginConfig',
     'users.apps.UsersConfig',
     'TNI_Project',
 ]
