@@ -1,4 +1,7 @@
 language: python
+os: windows
+before_install:
+  - pip install -U pytest
 install:
   - python -m pip install Django
 script:
