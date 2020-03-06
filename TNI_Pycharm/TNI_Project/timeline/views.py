@@ -1,44 +1,60 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.http import HttpResponse
 from . import forms
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from timeline.forms import userProfileForm,userForm, ImageForm
-from timeline.models import Image
+from django.contrib.auth.forms import AuthenticationForm
+from timeline.forms import userProfileForm,userForm, ImageForm, CommentForm
+from timeline.models import Image, Comment
 from django.views.generic import ListView
 
 # Create your views here.
 
-posts = [
-    {
-        'author': 'Adrien Kamran',
-        'caption': 'This is a test post!',
-        'timestamp': '2/2/2020'
-    },
-    {
-        'author': 'Nicolas Kamran',
-        'caption': 'This is the second test post!',
-        'timestamp': '2/2/2020'
-    }
-]
-
 def index(request):
-    context = {
-       'posts': posts
-    }
-    return render(request, "timeline/base.html",context)
+    return render(request, "timeline/base.html")
 
-def oldhome(request):
+def signIn(request):
+    if request.user.is_authenticated:
+        return redirect(reverse('timeline-home'))
+
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect(reverse('timeline-home'))
+        else:
+            form = AuthenticationForm(request.POST)
+            return render(request, 'timeline/login.html', {'form': form})
+    else:
+        form = AuthenticationForm()
+        return render(request, 'timeline/login.html', {'form': form})
+
+
+def signOut(request):
+    if request.user.is_authenticated == False:
+        return redirect(reverse('timeline-base'))
+
+    logout(request)
+    return redirect(reverse('timeline-base'))
+
+def home(request):
+    if request.user.is_authenticated == False:
+        return redirect(reverse('timeline-base'))
+    
+    model = Image
+    modelComment = Comment
     context = {
-       'posts': posts
+       'posts': model.objects.all(),
+       'comments': modelComment.objects.all(),
     }
     return render(request, "timeline/home_test.html",context)
 
 def register(request):
-        form = forms.userForm()
-        return render(request, 'timeline/user_registration.html', {'form':form})
-
-def about(request):
-    return HttpResponse("<h1>This is the About page.<h1>")
+    form = forms.userForm()
+    return render(request, 'timeline/user_registration.html', {'form':form})
 
 def registerUser(request):
     print("Register User Called")
@@ -68,19 +84,38 @@ def image_view(request):
         form = ImageForm(request.POST, request.FILES)
 
         if form.is_valid():
-            print("SUCCESS IS COMING")
-            form.save()
-            return HttpResponse('successfully uploaded')
-        else:
-            print("FAILURE IS COMING")
-    else:
-        form = ImageForm()
-        print("Even the post and files failed")
-    return render(request, 'home_test.html', {'form' : form})
+            imgObj = form.save(commit=False)
+            imgObj.user = request.user
+            imgObj.save()
+            print(request.user)
+            
+            return redirect(reverse('timeline-home'))
 
-def home(request):
-    model = Image
-    context = {
-       'posts': model.objects.all()
-    }
-    return render(request, "timeline/home_test.html",context)
+    #return render(request, 'home_test.html', {'form' : form})
+    return redirect(reverse('timeline-home'))
+
+def image_like(request):
+    if request.method == 'POST' and request.user.is_authenticated == True:
+        imgObj = Image.objects.get(name=request.POST['name'])
+        imgObj.likes += 1
+        imgObj.save()
+    return redirect(reverse('timeline-home'))
+
+def image_comment(request):
+    if request.method == 'POST' and request.user.is_authenticated == True:
+        print(request.POST)
+        form = CommentForm(request.POST)
+
+        if form.is_valid():
+            comObj = form.save(commit=False)
+            imgObj = Image.objects.get(name=request.POST['img'])
+            comObj.user = request.user
+            comObj.img = imgObj
+            comObj.save()
+            print("Comment Created: ", request.POST)
+        else:
+            print("Comment Failed")
+    return redirect(reverse('timeline-home'))
+
+def about(request):
+    return HttpResponse("<h1>This is the About page.<h1>")

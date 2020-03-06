@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from timeline.models import userProfile, Image
+from timeline.models import userProfile, Image, Comment
 
 class userForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Create Password'}))
@@ -20,4 +20,11 @@ class userProfileForm(forms.Form):
 class ImageForm(forms.ModelForm):
     class Meta():
         model = Image
-        fields = ('name', 'Img')
+        fields = ('name', 'Img', 'caption')
+        exclude = ['user']
+    
+class CommentForm(forms.ModelForm):
+    class Meta():
+        model = Comment
+        fields = ('msg',)
+        exclude = ['user', 'post_date', 'img']

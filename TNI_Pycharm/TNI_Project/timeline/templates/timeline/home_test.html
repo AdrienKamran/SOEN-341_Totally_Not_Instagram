@@ -62,21 +62,36 @@
                                 </div>
                             </td>
                             <td valign="middle" class="w-75 h-auto">
-                                <h4 class="card-title align-self-center">[POST AUTHOR]</h4>
+                                <h4 class="card-title align-self-center">{{ post.user }}</h4>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-                <p class="text-left text-muted">Posted on [TIMESTAMP]</p>
+                <p class="text-left text-muted">Posted on {{ post.post_date }}</p>
                 <p class="card-text">{{ post.name }}</p>
-                <a href="#" class="btn btn-primary">LIKE</a>
+				
+				<form method="post" action="like/">
+					{% csrf_token %}
+					<input type="hidden" name="name" value={{ post.name }} />
+					<a onclick="this.parentNode.submit();" class="btn btn-primary">LIKE</a> <p> {{ post.likes }}</p>
+				</form>
                 <hr>
                 <div class="container mt-3 w-100">
-                    <form id="usrform" action="">
-                        <textarea  name="Comment" form="usrform" id="text1" class="form-control" dmx-bind:placeholder="Have some thoughts about this post? Comment here!"></textarea>
-                        <button type="submit" value="Comment" form="usrform" class="btn bg-info mt-3 text-white">Submit Comment</button>
+                    <form id={{ post.name }} method="post" action="comment/">
+						{% csrf_token %}
+						<input type="hidden" form={{ post.name }} name="img" value={{ post.name }} />
+                        <textarea  name="msg" form={{ post.name }} id="text1" class="form-control" dmx-bind:placeholder="Have some thoughts about this post? Comment here!"></textarea>
+                        <button type="submit" value="Comment" form={{ post.name }} class="btn bg-info mt-3 text-white">Submit Comment</button>
                     </form>
-                </div>
+				</div>
+				{% for comment in comments %}
+				<div>
+					{% if comment.img == post %}
+						{{ comment.post_date }} -- {{ comment.user }} -- {{ comment.msg }}
+					{% endif %}
+				</div>
+				{% endfor %}
+
             </div>
         </div>
     {% endfor %}
