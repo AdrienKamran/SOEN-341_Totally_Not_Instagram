@@ -20,6 +20,9 @@ class Image(models.Model):
     post_date = models.DateField(("Date"), default=datetime.date.today, unique=False)
     likes = models.IntegerField(default=0)
 
+    class Meta:
+        ordering = ['-post_date',]
+
 class Comment(models.Model):
     user = models.ForeignKey (User,on_delete=models.CASCADE)
     img = models.ForeignKey (Image,on_delete=models.CASCADE)

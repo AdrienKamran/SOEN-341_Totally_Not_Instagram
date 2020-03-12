@@ -50,7 +50,7 @@ def home(request):
        'posts': model.objects.all(),
        'comments': modelComment.objects.all(),
     }
-    return render(request, "timeline/home_test.html",context)
+    return render(request, 'timeline/home_test.html',context)
 
 def register(request):
     form = forms.userForm()
