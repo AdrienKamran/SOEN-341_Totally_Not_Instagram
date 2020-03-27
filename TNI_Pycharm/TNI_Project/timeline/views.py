@@ -52,6 +52,10 @@ def home(request):
     }
     return render(request, 'timeline/home_test.html',context)
 
+
+def userprofile(request):
+    return render(request, "timeline/profile.html")
+
 def register(request):
     form = forms.userForm()
     return render(request, 'timeline/user_registration.html', {'form':form})
@@ -121,5 +125,3 @@ def about(request):
     return HttpResponse("<h1>This is the About page.<h1>")
 
 
-def userprofile(request):
-    return render(request, "timeline/profile.html")
