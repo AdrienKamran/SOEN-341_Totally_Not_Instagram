@@ -14,6 +14,7 @@ urlpatterns = [
     path('home/imageupload/', views.image_view, name='image_view'),
     path('home/like/', views.image_like, name='image_like'),
     path('home/comment/', views.image_comment, name='image_comment'),
+    path('profile/', views.userprofile, name='timeline-profile'),
 
     path('about/', views.about, name='timeline-about'),
     

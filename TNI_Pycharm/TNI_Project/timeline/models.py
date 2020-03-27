@@ -7,7 +7,7 @@ class userProfile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
 
     portfolio = models.URLField(blank=True)
-    picture = models.ImageField(upload_to='profile_pics')
+    picture = models.ImageField(default='default.jpg', upload_to='profile_pics')
 
     def __str__(self):
         return self.user.username

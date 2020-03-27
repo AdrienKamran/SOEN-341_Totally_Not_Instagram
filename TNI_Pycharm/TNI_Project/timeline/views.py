@@ -119,3 +119,7 @@ def image_comment(request):
 
 def about(request):
     return HttpResponse("<h1>This is the About page.<h1>")
+
+
+def userprofile(request):
+    return render(request, "timeline/profile.html")

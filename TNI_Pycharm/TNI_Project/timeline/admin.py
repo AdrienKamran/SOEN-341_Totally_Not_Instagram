@@ -5,3 +5,4 @@ admin.site.register(userProfile)
 
 admin.site.register(Image)
 admin.site.register(Comment)
+
