@@ -2,7 +2,6 @@ from django.urls import path
 from django.contrib import admin
 from . import views
 
-
 urlpatterns = [
     path('', views.index, name='timeline-base'),
     path('login/', views.signIn, name='user-login'),
@@ -15,7 +14,7 @@ urlpatterns = [
     path('home/imageupload/', views.image_view, name='image_view'),
     path('home/like/', views.image_like, name='image_like'),
     path('home/comment/', views.image_comment, name='image_comment'),
-    path('profile/', views.userprofile, name='timeline-profile'),
+    path('profile/', views.userprofile, name='timeline-about'),
 
     path('about/', views.about, name='timeline-about'),
     
