@@ -2,6 +2,7 @@ from django.urls import path
 from django.contrib import admin
 from . import views
 
+
 urlpatterns = [
     path('', views.index, name='timeline-base'),
     path('login/', views.signIn, name='user-login'),

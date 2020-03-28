@@ -123,5 +123,6 @@ def image_comment(request):
 
 def about(request):
     return HttpResponse("<h1>This is the About page.<h1>")
+    
 
 
