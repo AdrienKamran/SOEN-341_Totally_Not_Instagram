@@ -50,7 +50,11 @@ def home(request):
        'posts': model.objects.all(),
        'comments': modelComment.objects.all(),
     }
-    return render(request, "timeline/home_test.html",context)
+    return render(request, 'timeline/home_test.html',context)
+
+
+def userprofile(request):
+    return render(request, "timeline/profile.html")
 
 def register(request):
     form = forms.userForm()
@@ -119,3 +123,6 @@ def image_comment(request):
 
 def about(request):
     return HttpResponse("<h1>This is the About page.<h1>")
+    
+
+

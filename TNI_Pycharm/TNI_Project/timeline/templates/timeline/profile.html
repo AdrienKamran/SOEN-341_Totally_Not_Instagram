@@ -1,0 +1,168 @@
+{% load static %}
+
+<!doctype html>
+<html>
+
+<head>
+	<script src="{% static 'timeline/dmxAppConnect/dmxAppConnect.js' %}"></script>
+	<meta charset="UTF-8">
+	<title>Untitled Document</title>
+	<script src="{% static 'timeline/js/jquery-3.4.1.slim.min.js' %}"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="{% static 'timeline/bootstrap/4/simplex/bootstrap.min.css' %}" />
+	<script src="{% static 'dmxAppConnect/dmxBootstrap4Navigation/dmxBootstrap4Navigation.js' %}" defer=""></script>
+	<script src="{% static 'dmxAppConnect/dmxBootstrap4Modal/dmxBootstrap4Modal.js' %}" defer=""></script>
+	<script src="{% static 'dmxAppConnect/dmxBootstrap4Collapse/dmxBootstrap4Collapse.js' %}" defer=""></script>
+	<script src="{% static 'dmxAppConnect/dmxMasonry/dmxMasonry.js' %}" defer=""></script>
+</head>
+
+<body onload="modal-loggedin" is="dmx-app" id="timeline">
+
+	<header class="bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+						<img src="{% static 'timeline/TNI_Assets/TNI-Logo.png' %}"  class="navbar-brand mr-auto" href="#" width="55">
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1_collapse" aria-controls="navbar1_collapse" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse justify-content-end" id="navbar1_collapse">
+							<div class="navbar-nav">
+								<a class="nav-item nav-link active" href="{% static '#' %}">Home</a>
+								<a class="nav-item nav-link" href="{% static '#' %}">About</a>
+								<a class="nav-item nav-link" href="{% static '#' %}">Contact</a>
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="container wappler-block pt-3 pb-3">
+		<div class="modal" id="modal-loggedin" is="dmx-bs4-modal" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+						<p class="text-center text-success"><i class="fas fa-check-circle fa-6x"></i></p>
+						<h4 class="text-center font-weight-light">Welcome! You have logged in.</h4>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<main>
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="offset-1 col-3">
+						<img src="{{ user.userProfile.picture.url }}" class="img-fluid" width="168px" height="168px">
+					</div>
+					<div class="col">
+						<div class="row mb-2">
+							<div class="col-4">
+								<h1>{{ user.username }}</h1>
+							</div>
+							<div class="col">
+								<button class="btn bg-info text-light">Follow</button>
+							</div>
+							<div class="col mb-0 pb-0">
+								<button class="btn bg-dark text-light">Following</button>
+							</div>
+						</div>
+						<div class="row mb-2">
+							<div class="col-1">
+								<p class="font-weight-bold">[#POSTS]</p>
+							</div>
+							<div class="col">
+								<p>posts</p>
+							</div>
+							<div class="col-1">
+								<p class="font-weight-bold">[#FLR]</p>
+							</div>
+							<div class="col">
+								<p>followers</p>
+							</div>
+							<div class="col-1">
+								<p class="font-weight-bold">[#FLI]</p>
+							</div>
+							<div class="col">
+								<p>following</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<h2>[FULL NAME]</h2>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<p>[USER BIOGRAPHY TEXT GOES HERE]</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="container">
+				<hr>
+			</div>
+		</section>
+		<section class="mb-3">
+			<div class="container">
+				<div class="row">
+					<div class="offset-3 col-6">
+						<div class="card mb-0">
+							<div class="card-header">📌 Pinned</div>
+							<img class="card-img-top img-thumbnail" alt="Card image cap" src="{% static 'timeline/TNI_Assets/erin-babnik-photography-990x556.jpg' %}">
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="container">
+				<div class="row mb-xl-3 row-cols-xl-3" is="dmx-masonry" id="masonry1" dmx-bind:repeat="1" preserve-order columns="3">
+					<div class="col mb-xl-3">
+						<img class="img-thumbnail img-fluid" src="{% static 'timeline/TNI_Assets/erin-babnik-photography-990x556.jpg' %}">
+					</div>
+					<div class="col mb-xl-3">
+						<img class="img-thumbnail img-fluid" src="{% static 'timeline/TNI_Assets/nathan-lee-allen-landscape-feature-1024x464.jpg' %}">
+					</div>
+					<div class="col mb-xl-3">
+						<img class="img-thumbnail img-fluid" src="{% static 'timeline/TNI_Assets/landscape_photography.jpg' %}">
+					</div>
+					<div class="col mb-xl-3">
+						<img class="img-thumbnail img-fluid" src="{% static 'timeline/TNI_Assets/6.ngsversion.1467942028599.adapt.1900.1.jpg' %}">
+					</div>
+					<div class="col mb-xl-3">
+						<img class="img-thumbnail img-fluid" src="{% static 'timeline/TNI_Assets/Mass.jpg' %}">
+					</div>
+					<div class="col mb-xl-3">
+						<img class="img-thumbnail img-fluid" src="{% static 'timeline/TNI_Assets/erin-babnik-photography-990x556.jpg' %}">
+					</div>
+					<div class="col mb-xl-3">
+						<img class="img-thumbnail img-fluid" src="{% static 'timeline/TNI_Assets/nathan-lee-allen-landscape-feature-1024x464.jpg' %}">
+					</div>
+					<div class="col mb-xl-3">
+						<img class="img-thumbnail img-fluid" src="{% static 'timeline/TNI_Assets/landscape_photography.jpg' %}">
+					</div>
+					<div class="col mb-xl-3">
+						<img class="img-thumbnail img-fluid" src="{% static 'timeline/TNI_Assets/6.ngsversion.1467942028599.adapt.1900.1.jpg' %}">
+					</div>
+					<div class="col mb-xl-3">
+						<img class="img-thumbnail img-fluid" src="{% static 'timeline/TNI_Assets/Mass.jpg' %}">
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<script src="{% static 'timeline/bootstrap/4/js/popper.min.js' %}"></script>
+	<script src="{% static 'timeline/bootstrap/4/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>
