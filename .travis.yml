@@ -1,0 +1,5 @@
+language: python
+install:
+  - python -m pip install Django
+script:
+  - pytest
