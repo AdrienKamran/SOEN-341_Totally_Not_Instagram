@@ -2,5 +2,4 @@ language: python
 install:
   - python -m pip install Django
 script:
-  - export DJANGO_SETTINGS_MODULE=test_settings
   - pytest
