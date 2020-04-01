@@ -1,5 +1,12 @@
 language: python
+services:
+  - sqlite
+env:
+  - DJANGO=2.2 DB=sqlite
 install:
   - python -m pip install Django
+  - pip install -r requirements.txt
+before_script:
+  - sqlite -e 'create database test;' -u root
 script:
-  - pytest
+  - python manage.py test
