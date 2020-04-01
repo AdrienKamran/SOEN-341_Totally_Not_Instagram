@@ -5,5 +5,7 @@ env:
   - DJANGO=2.2 DB=sqlite3
 install:
   - python -m pip install Django
+before_script:
+  - cd TNI_Project
 script:
   - python manage.py test
