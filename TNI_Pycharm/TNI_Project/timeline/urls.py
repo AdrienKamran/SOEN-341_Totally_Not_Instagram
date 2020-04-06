@@ -1,4 +1,5 @@
 from django.urls import path
+from django.conf.urls import include, url
 from django.contrib import admin
 from . import views
 
@@ -14,7 +15,7 @@ urlpatterns = [
     path('home/imageupload/', views.image_view, name='image_view'),
     path('home/like/', views.image_like, name='image_like'),
     path('home/comment/', views.image_comment, name='image_comment'),
-    path('profile/', views.userprofile, name='timeline-about'),
+    url(r'^(?P<username>[\w\-]+)/$', views.userprofile, name='profile'),
 
     path('about/', views.about, name='timeline-about'),
     
