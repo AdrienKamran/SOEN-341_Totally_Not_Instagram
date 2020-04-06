@@ -53,8 +53,23 @@ def home(request):
     return render(request, 'timeline/home_test.html',context)
 
 
-def userprofile(request):
-    return render(request, "timeline/profile.html")
+def userprofile(request, username=None):
+     # If no such user exists raise 404
+    try:
+        user = User.objects.get(username=username)
+    except:
+        raise Http404
+
+    # Flag that determines if we should show editable elements in template
+    #editable = False
+    # Handling non authenticated user for obvious reasons
+    #if request.user.is_authenticated() and request.user == user:
+    #    editable = True
+
+    context = locals()
+    template = 'timeline/profile.html'
+    return render (request, 'timeline/profile.html', context)
+
 
 def register(request):
     form = forms.userForm()
