@@ -1,4 +1,4 @@
-from unittest import TestCase
+from django.test import TestCase
 from django.db import models
 from django.contrib.auth.models import User
 # from TNI_Project.timeline import views
