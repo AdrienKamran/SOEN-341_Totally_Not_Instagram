@@ -9,4 +9,6 @@ install:
 before_script:
   - cd TNI_Project
 script:
+  - python manage.py makemigrations
+  - python manage.py migrate
   - python manage.py test
