@@ -6,7 +6,5 @@ env:
 install:
   - python -m pip install Django
   - python -m pip install Pillow
-before_script:
-  - cd TNI_Project
 script:
-  - python manage.py test
+  - pytest
