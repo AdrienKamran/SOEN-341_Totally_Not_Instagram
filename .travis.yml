@@ -1,6 +1,4 @@
 language: python
-env:
-  - DJANGO=2.2 DB=sqlite
 install:
   - python -m pip install -r requirements.txt
 before_script:
