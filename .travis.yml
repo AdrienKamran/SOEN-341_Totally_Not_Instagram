@@ -4,7 +4,6 @@ services:
 env:
   - DJANGO=2.2 DB=sqlite
 install:
-  - python -m pip install -q . --use-mirrors
   - python -m pip install Django
 before_script:
   - cd TNI_Project
