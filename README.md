@@ -1,32 +1,40 @@
 
 # SOEN-341_Totally_Not_Instagram
 
+## Acceptance Tests for Features
+
+As of the 8th of April 2020, our core features (plus some) have been tested. Please see the following GitHub Issues for more information:
+
+- Uploading a picture -> https://github.com/AdrienKamran/SOEN-341_Totally_Not_Instagram/issues/47
+- Commenting on a post -> https://github.com/AdrienKamran/SOEN-341_Totally_Not_Instagram/issues/50
+- Liking a post -> https://github.com/AdrienKamran/SOEN-341_Totally_Not_Instagram/issues/48
+- Viewing posts in chronological order -> https://github.com/AdrienKamran/SOEN-341_Totally_Not_Instagram/issues/49
+
 ## Objective 
 
-Develope Instagram like web application called "Totally Not Instagram".
+Develop an Instagram-like web application called "Totally Not Instagram".
 
 ## Projective Description
 
-In ervery day of our life, we communicate with friends using social midea application. sharing picture is one of the very useful
-ways recaling memory and aslo commnunicate with other people.At the Totally Not Instagram web application, user can post communicate with 
-others sharing picture and also they can see verious feedback from the user based on theri uploded picture.
+In our every-day life, we communicate with friends using social media applications. Sharing pictures is one of the very useful
+ways to recall memories, as well as to commnunicate with others seamlessly. With our web application, Totally Not Instagram, users can create image-based posts and stay up-to-date with the world. Show your appreciation of other posts with "likes", and leave your thoughts with comments.
 
 ## Core Features
 
 * Upload a picture.
 * Comment on the uploaded picture.
-* Follow a user.
+* Like a picture.
 
 ## Potential Features
 
-* Reply to comment.
-* Like a picture.
+* Reply to comments.
+* Follow other users.
 
 ## Team Members
 
 | Name                          | Github e-mail                                       | Github username    
 |--------------------           |-------------------------------                      |-----------------
-|Muhamma Shah Newaz             |abir_mtl@hotmail.com                                 |abirshah
+|Muhammad Shah Newaz            |abir_mtl@hotmail.com                                 |abirshah
 |Qandeel Arshad                 |qandeelsphotos@gmail.com                             |qandeelarshad
 |Sarah Ghorbali                 |sarahnoor23@gmail.com                                |sarahghrbl
 |Adrien Kamran                  |adrienkamran@gmail.com                               |AdrienKamran
@@ -38,8 +46,8 @@ others sharing picture and also they can see verious feedback from the user base
 * HTML
 * Javascript
 * CSS
+* Bootstrap framework
 * Python
 * Django framework
 * XAMPP
-* Apache
-* MySQL or SQLite
+* SQLite
