@@ -1,0 +1,280 @@
+(venv) C:\Users\user\Documents\GitHub\SOEN-341_Totally_Not_Instagram\TNI_Pycharm\TNI_Project>pylint timeline
+************* Module timeline.admin
+timeline\admin.py:8:0: C0305: Trailing newlines (trailing-newlines)
+timeline\admin.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+************* Module timeline.apps
+timeline\apps.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+timeline\apps.py:4:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module timeline.forms
+timeline\forms.py:6:0: C0301: Line too long (125/100) (line-too-long)
+timeline\forms.py:7:0: C0301: Line too long (121/100) (line-too-long)
+timeline\forms.py:8:0: C0301: Line too long (116/100) (line-too-long)
+timeline\forms.py:18:29: C0326: Exactly one space required after comma
+        fields = ('portfolio','picture')
+                             ^ (bad-whitespace)
+timeline\forms.py:25:0: C0303: Trailing whitespace (trailing-whitespace)
+timeline\forms.py:30:0: C0304: Final newline missing (missing-final-newline)
+timeline\forms.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+timeline\forms.py:5:0: C0103: Class name "userForm" doesn't conform to PascalCase naming style (invalid-name)
+timeline\forms.py:5:0: C0115: Missing class docstring (missing-class-docstring)
+timeline\forms.py:10:4: C0115: Missing class docstring (missing-class-docstring)
+timeline\forms.py:10:4: R0903: Too few public methods (0/2) (too-few-public-methods)
+timeline\forms.py:14:0: C0103: Class name "userProfileForm" doesn't conform to PascalCase naming style (invalid-name)
+timeline\forms.py:14:0: C0115: Missing class docstring (missing-class-docstring)
+timeline\forms.py:16:4: C0115: Missing class docstring (missing-class-docstring)
+timeline\forms.py:16:4: R0903: Too few public methods (0/2) (too-few-public-methods)
+timeline\forms.py:20:0: C0115: Missing class docstring (missing-class-docstring)
+timeline\forms.py:21:4: C0115: Missing class docstring (missing-class-docstring)
+timeline\forms.py:21:4: R0903: Too few public methods (0/2) (too-few-public-methods)
+timeline\forms.py:26:0: C0115: Missing class docstring (missing-class-docstring)
+timeline\forms.py:27:4: C0115: Missing class docstring (missing-class-docstring)
+timeline\forms.py:27:4: R0903: Too few public methods (0/2) (too-few-public-methods)
+************* Module timeline.models
+timeline\models.py:7:36: C0326: Exactly one space required after comma
+    user = models.OneToOneField(User,on_delete=models.CASCADE)
+                                    ^ (bad-whitespace)
+timeline\models.py:11:0: C0303: Trailing whitespace (trailing-whitespace)
+timeline\models.py:20:29: C0326: No space allowed before bracket
+    user = models.ForeignKey (User,on_delete=models.CASCADE)
+                             ^ (bad-whitespace)
+timeline\models.py:20:34: C0326: Exactly one space required after comma
+    user = models.ForeignKey (User,on_delete=models.CASCADE)
+                                  ^ (bad-whitespace)
+timeline\models.py:28:29: C0326: No space allowed before bracket
+    user = models.ForeignKey (User,on_delete=models.CASCADE)
+                             ^ (bad-whitespace)
+timeline\models.py:28:34: C0326: Exactly one space required after comma
+    user = models.ForeignKey (User,on_delete=models.CASCADE)
+                                  ^ (bad-whitespace)
+timeline\models.py:29:28: C0326: No space allowed before bracket
+    img = models.ForeignKey (Image,on_delete=models.CASCADE)
+                            ^ (bad-whitespace)
+timeline\models.py:29:34: C0326: Exactly one space required after comma
+    img = models.ForeignKey (Image,on_delete=models.CASCADE)
+                                  ^ (bad-whitespace)
+timeline\models.py:31:0: C0304: Final newline missing (missing-final-newline)
+timeline\models.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+timeline\models.py:5:0: C0103: Class name "userProfile" doesn't conform to PascalCase naming style (invalid-name)
+timeline\models.py:5:0: C0115: Missing class docstring (missing-class-docstring)
+timeline\models.py:14:15: E1101: Instance of 'OneToOneField' has no 'username' member (no-member)
+timeline\models.py:16:0: C0115: Missing class docstring (missing-class-docstring)
+timeline\models.py:24:4: C0115: Missing class docstring (missing-class-docstring)
+timeline\models.py:24:4: R0903: Too few public methods (0/2) (too-few-public-methods)
+timeline\models.py:27:0: C0115: Missing class docstring (missing-class-docstring)
+timeline\models.py:3:0: C0411: standard import "import datetime" should be placed before "from django.db import models" (wrong-import-order)
+************* Module timeline.tests
+timeline\tests.py:55:0: C0301: Line too long (110/100) (line-too-long)
+timeline\tests.py:61:0: C0301: Line too long (109/100) (line-too-long)
+timeline\tests.py:75:0: C0301: Line too long (141/100) (line-too-long)
+timeline\tests.py:77:0: C0301: Line too long (121/100) (line-too-long)
+timeline\tests.py:89:0: C0301: Line too long (118/100) (line-too-long)
+timeline\tests.py:108:0: C0301: Line too long (108/100) (line-too-long)
+timeline\tests.py:110:0: C0301: Line too long (110/100) (line-too-long)
+timeline\tests.py:113:0: C0301: Line too long (103/100) (line-too-long)
+timeline\tests.py:114:0: C0301: Line too long (118/100) (line-too-long)
+timeline\tests.py:123:0: C0301: Line too long (128/100) (line-too-long)
+timeline\tests.py:125:0: C0301: Line too long (110/100) (line-too-long)
+timeline\tests.py:128:0: C0301: Line too long (103/100) (line-too-long)
+timeline\tests.py:129:0: C0301: Line too long (118/100) (line-too-long)
+timeline\tests.py:143:0: C0301: Line too long (121/100) (line-too-long)
+timeline\tests.py:147:0: C0301: Line too long (107/100) (line-too-long)
+timeline\tests.py:148:0: C0330: Wrong continued indentation (remove 4 spaces).
+                                                                        'Img': ti, 'caption': 'TestCaption'})
+                                                                    |   ^ (bad-continuation)
+timeline\tests.py:148:0: C0301: Line too long (109/100) (line-too-long)
+timeline\tests.py:156:0: C0301: Line too long (136/100) (line-too-long)
+timeline\tests.py:160:0: C0301: Line too long (107/100) (line-too-long)
+timeline\tests.py:161:0: C0330: Wrong continued indentation (remove 4 spaces).
+                                                                        'Img': ti, 'caption': 'TestCaption'})
+                                                                    |   ^ (bad-continuation)
+timeline\tests.py:161:0: C0301: Line too long (109/100) (line-too-long)
+timeline\tests.py:165:0: C0304: Final newline missing (missing-final-newline)
+timeline\tests.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+timeline\tests.py:13:0: C0115: Missing class docstring (missing-class-docstring)
+timeline\tests.py:21:4: C0116: Missing function or method docstring (missing-function-docstring)
+timeline\tests.py:21:4: R0201: Method could be a function (no-self-use)
+timeline\tests.py:29:4: C0116: Missing function or method docstring (missing-function-docstring)
+timeline\tests.py:29:4: R0201: Method could be a function (no-self-use)
+timeline\tests.py:42:-1: W0105: String statement has no effect (pointless-string-statement)
+timeline\tests.py:45:0: C0115: Missing class docstring (missing-class-docstring)
+timeline\tests.py:54:4: C0116: Missing function or method docstring (missing-function-docstring)
+timeline\tests.py:56:8: W0104: Statement seems to have no effect (pointless-statement)
+timeline\tests.py:60:4: C0116: Missing function or method docstring (missing-function-docstring)
+timeline\tests.py:65:8: W0104: Statement seems to have no effect (pointless-statement)
+timeline\tests.py:69:0: C0115: Missing class docstring (missing-class-docstring)
+timeline\tests.py:78:4: C0116: Missing function or method docstring (missing-function-docstring)
+timeline\tests.py:79:21: E1101: Class 'Image' has no 'objects' member (no-member)
+timeline\tests.py:90:4: C0116: Missing function or method docstring (missing-function-docstring)
+timeline\tests.py:91:21: E1101: Class 'Image' has no 'objects' member (no-member)
+timeline\tests.py:101:0: C0115: Missing class docstring (missing-class-docstring)
+timeline\tests.py:109:4: C0116: Missing function or method docstring (missing-function-docstring)
+timeline\tests.py:110:21: E1101: Class 'Image' has no 'objects' member (no-member)
+timeline\tests.py:117:8: W0104: Statement seems to have no effect (pointless-statement)
+timeline\tests.py:119:12: C0103: Variable name "c" doesn't conform to snake_case naming style (invalid-name)
+timeline\tests.py:119:17: E1101: Class 'Comment' has no 'objects' member (no-member)
+timeline\tests.py:124:4: C0116: Missing function or method docstring (missing-function-docstring)
+timeline\tests.py:125:21: E1101: Class 'Image' has no 'objects' member (no-member)
+timeline\tests.py:136:0: C0115: Missing class docstring (missing-class-docstring)
+timeline\tests.py:144:4: C0116: Missing function or method docstring (missing-function-docstring)
+timeline\tests.py:146:47: C0103: Variable name "ti" doesn't conform to snake_case naming style (invalid-name)
+timeline\tests.py:152:12: C0103: Variable name "p" doesn't conform to snake_case naming style (invalid-name)
+timeline\tests.py:152:17: E1101: Class 'Image' has no 'objects' member (no-member)
+timeline\tests.py:157:4: C0116: Missing function or method docstring (missing-function-docstring)
+timeline\tests.py:159:47: C0103: Variable name "ti" doesn't conform to snake_case naming style (invalid-name)
+timeline\tests.py:2:0: W0611: Unused HttpRequest imported from django.http (unused-import)
+timeline\tests.py:3:0: W0611: Unused models imported from django.db (unused-import)
+timeline\tests.py:5:0: W0611: Unused logout imported from django.contrib.auth (unused-import)
+timeline\tests.py:5:0: W0611: Unused login imported from django.contrib.auth (unused-import)
+timeline\tests.py:9:0: W0611: Unused import datetime (unused-import)
+timeline\tests.py:9:0: C0411: standard import "import datetime" should be placed before "from django.test import TestCase, RequestFactory" (wrong-import-order)
+************* Module timeline.urls
+timeline\urls.py:20:0: C0303: Trailing whitespace (trailing-whitespace)
+timeline\urls.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+timeline\urls.py:5:0: C0103: Constant name "urlpatterns" doesn't conform to UPPER_CASE naming style (invalid-name)
+timeline\urls.py:2:0: W0611: Unused admin imported from django.contrib (unused-import)
+************* Module timeline.views
+timeline\views.py:8:42: C0326: Exactly one space required after comma
+from timeline.forms import userProfileForm,userForm, ImageForm, CommentForm
+                                          ^ (bad-whitespace)
+timeline\views.py:46:0: C0303: Trailing whitespace (trailing-whitespace)
+timeline\views.py:50:0: C0330: Wrong hanging indentation (add 1 space).
+       'posts': model.objects.all(),
+       ^| (bad-continuation)
+timeline\views.py:51:0: C0330: Wrong hanging indentation (add 1 space).
+       'comments': modelComment.objects.all(),
+       ^| (bad-continuation)
+timeline\views.py:53:52: C0326: Exactly one space required after comma
+    return render(request, 'timeline/home_test.html',context)
+                                                    ^ (bad-whitespace)
+timeline\views.py:69:0: W0311: Bad indentation. Found 7 spaces, expected 8 (bad-indentation)
+timeline\views.py:71:0: W0311: Bad indentation. Found 7 spaces, expected 8 (bad-indentation)
+timeline\views.py:73:0: W0311: Bad indentation. Found 11 spaces, expected 12 (bad-indentation)
+timeline\views.py:74:0: W0311: Bad indentation. Found 11 spaces, expected 12 (bad-indentation)
+timeline\views.py:75:0: W0311: Bad indentation. Found 11 spaces, expected 12 (bad-indentation)
+timeline\views.py:76:0: W0311: Bad indentation. Found 11 spaces, expected 12 (bad-indentation)
+timeline\views.py:77:0: W0311: Bad indentation. Found 7 spaces, expected 8 (bad-indentation)
+timeline\views.py:78:0: W0311: Bad indentation. Found 10 spaces, expected 12 (bad-indentation)
+timeline\views.py:80:0: W0311: Bad indentation. Found 9 spaces, expected 8 (bad-indentation)
+timeline\views.py:82:0: C0330: Wrong continued indentation (remove 9 spaces).
+                           {'user_registration':user_registration,
+                  |        ^ (bad-continuation)
+timeline\views.py:95:0: C0303: Trailing whitespace (trailing-whitespace)
+timeline\views.py:127:0: C0303: Trailing whitespace (trailing-whitespace)
+timeline\views.py:129:0: C0305: Trailing newlines (trailing-newlines)
+timeline\views.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+timeline\views.py:14:0: C0116: Missing function or method docstring (missing-function-docstring)
+timeline\views.py:17:0: C0103: Function name "signIn" doesn't conform to snake_case naming style (invalid-name)
+timeline\views.py:17:0: C0116: Missing function or method docstring (missing-function-docstring)
+timeline\views.py:25:8: R1705: Unnecessary "else" after "return" (no-else-return)
+timeline\views.py:36:0: C0103: Function name "signOut" doesn't conform to snake_case naming style (invalid-name)
+timeline\views.py:36:0: C0116: Missing function or method docstring (missing-function-docstring)
+timeline\views.py:37:7: C0121: Comparison to False should be 'not expr' (singleton-comparison)
+timeline\views.py:43:0: C0116: Missing function or method docstring (missing-function-docstring)
+timeline\views.py:44:7: C0121: Comparison to False should be 'not expr' (singleton-comparison)
+timeline\views.py:50:16: E1101: Class 'Image' has no 'objects' member (no-member)
+timeline\views.py:51:19: E1101: Class 'Comment' has no 'objects' member (no-member)
+timeline\views.py:56:0: C0116: Missing function or method docstring (missing-function-docstring)
+timeline\views.py:59:0: C0116: Missing function or method docstring (missing-function-docstring)
+timeline\views.py:63:0: C0103: Function name "registerUser" doesn't conform to snake_case naming style (invalid-name)
+timeline\views.py:63:0: C0116: Missing function or method docstring (missing-function-docstring)
+timeline\views.py:86:0: C0116: Missing function or method docstring (missing-function-docstring)
+timeline\views.py:91:12: C0103: Variable name "imgObj" doesn't conform to snake_case naming style (invalid-name)
+timeline\views.py:101:0: C0116: Missing function or method docstring (missing-function-docstring)
+timeline\views.py:102:36: C0121: Comparison to True should be just 'expr' (singleton-comparison)
+timeline\views.py:103:8: C0103: Variable name "imgObj" doesn't conform to snake_case naming style (invalid-name)
+timeline\views.py:103:17: E1101: Class 'Image' has no 'objects' member (no-member)
+timeline\views.py:109:0: C0116: Missing function or method docstring (missing-function-docstring)
+timeline\views.py:110:36: C0121: Comparison to True should be just 'expr' (singleton-comparison)
+timeline\views.py:115:12: C0103: Variable name "comObj" doesn't conform to snake_case naming style (invalid-name)
+timeline\views.py:116:12: C0103: Variable name "imgObj" doesn't conform to snake_case naming style (invalid-name)
+timeline\views.py:116:21: E1101: Class 'Image' has no 'objects' member (no-member)
+timeline\views.py:125:0: C0116: Missing function or method docstring (missing-function-docstring)
+timeline\views.py:125:10: W0613: Unused argument 'request' (unused-argument)
+timeline\views.py:6:0: W0611: Unused User imported from django.contrib.auth.models (unused-import)
+timeline\views.py:8:0: W0611: Unused userProfileForm imported from timeline.forms (unused-import)
+timeline\views.py:10:0: W0611: Unused ListView imported from django.views.generic (unused-import)
+timeline\views.py:5:0: C0411: third party import "from django.contrib.auth import authenticate, login, logout" should be placed before "from . import forms" (wrong-import-order
+)
+timeline\views.py:6:0: C0411: third party import "from django.contrib.auth.models import User" should be placed before "from . import forms" (wrong-import-order)
+timeline\views.py:7:0: C0411: third party import "from django.contrib.auth.forms import AuthenticationForm" should be placed before "from . import forms" (wrong-import-order)
+timeline\views.py:8:0: C0411: first party import "from timeline.forms import userProfileForm, userForm, ImageForm, CommentForm" should be placed before "from . import forms" (w
+rong-import-order)
+timeline\views.py:9:0: C0411: first party import "from timeline.models import Image, Comment" should be placed before "from . import forms" (wrong-import-order)
+timeline\views.py:10:0: C0411: third party import "from django.views.generic import ListView" should be placed before "from timeline.forms import userProfileForm, userForm, Ima
+geForm, CommentForm" (wrong-import-order)
+timeline\views.py:10:0: C0412: Imports from package django are not grouped (ungrouped-imports)
+************* Module timeline.migrations.0001_initial
+timeline\migrations\0001_initial.py:20:0: C0301: Line too long (114/100) (line-too-long)
+timeline\migrations\0001_initial.py:23:0: C0301: Line too long (121/100) (line-too-long)
+timeline\migrations\0001_initial.py:1:0: C0103: Module name "0001_initial" doesn't conform to snake_case naming style (invalid-name)
+timeline\migrations\0001_initial.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+timeline\migrations\0001_initial.py:8:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module timeline.migrations.0002_image
+timeline\migrations\0002_image.py:16:0: C0301: Line too long (114/100) (line-too-long)
+timeline\migrations\0002_image.py:1:0: C0103: Module name "0002_image" doesn't conform to snake_case naming style (invalid-name)
+timeline\migrations\0002_image.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+timeline\migrations\0002_image.py:6:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module timeline.migrations.0003_auto_20200304_2155
+timeline\migrations\0003_auto_20200304_2155.py:25:0: C0301: Line too long (124/100) (line-too-long)
+timeline\migrations\0003_auto_20200304_2155.py:1:0: C0103: Module name "0003_auto_20200304_2155" doesn't conform to snake_case naming style (invalid-name)
+timeline\migrations\0003_auto_20200304_2155.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+timeline\migrations\0003_auto_20200304_2155.py:8:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module timeline.migrations.0004_auto_20200304_2231
+timeline\migrations\0004_auto_20200304_2231.py:19:0: C0301: Line too long (124/100) (line-too-long)
+timeline\migrations\0004_auto_20200304_2231.py:1:0: C0103: Module name "0004_auto_20200304_2231" doesn't conform to snake_case naming style (invalid-name)
+timeline\migrations\0004_auto_20200304_2231.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+timeline\migrations\0004_auto_20200304_2231.py:8:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module timeline.migrations.0005_image_post_date
+timeline\migrations\0005_image_post_date.py:1:0: C0103: Module name "0005_image_post_date" doesn't conform to snake_case naming style (invalid-name)
+timeline\migrations\0005_image_post_date.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+timeline\migrations\0005_image_post_date.py:7:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module timeline.migrations.0006_image_likes
+timeline\migrations\0006_image_likes.py:1:0: C0103: Module name "0006_image_likes" doesn't conform to snake_case naming style (invalid-name)
+timeline\migrations\0006_image_likes.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+timeline\migrations\0006_image_likes.py:6:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module timeline.migrations.0007_comment
+timeline\migrations\0007_comment.py:20:0: C0301: Line too long (114/100) (line-too-long)
+timeline\migrations\0007_comment.py:23:0: C0301: Line too long (123/100) (line-too-long)
+timeline\migrations\0007_comment.py:24:0: C0301: Line too long (132/100) (line-too-long)
+timeline\migrations\0007_comment.py:1:0: C0103: Module name "0007_comment" doesn't conform to snake_case naming style (invalid-name)
+timeline\migrations\0007_comment.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+timeline\migrations\0007_comment.py:9:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module timeline.migrations.0008_auto_20200304_2318
+timeline\migrations\0008_auto_20200304_2318.py:24:0: C0301: Line too long (113/100) (line-too-long)
+timeline\migrations\0008_auto_20200304_2318.py:1:0: C0103: Module name "0008_auto_20200304_2318" doesn't conform to snake_case naming style (invalid-name)
+timeline\migrations\0008_auto_20200304_2318.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+timeline\migrations\0008_auto_20200304_2318.py:8:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module timeline.migrations.0009_auto_20200304_2322
+timeline\migrations\0009_auto_20200304_2322.py:19:0: C0301: Line too long (102/100) (line-too-long)
+timeline\migrations\0009_auto_20200304_2322.py:24:0: C0301: Line too long (110/100) (line-too-long)
+timeline\migrations\0009_auto_20200304_2322.py:29:0: C0301: Line too long (110/100) (line-too-long)
+timeline\migrations\0009_auto_20200304_2322.py:1:0: C0103: Module name "0009_auto_20200304_2322" doesn't conform to snake_case naming style (invalid-name)
+timeline\migrations\0009_auto_20200304_2322.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+timeline\migrations\0009_auto_20200304_2322.py:8:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module timeline.migrations.0010_auto_20200311_2328
+timeline\migrations\0010_auto_20200311_2328.py:1:0: C0103: Module name "0010_auto_20200311_2328" doesn't conform to snake_case naming style (invalid-name)
+timeline\migrations\0010_auto_20200311_2328.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+timeline\migrations\0010_auto_20200311_2328.py:6:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module timeline.migrations.0011_auto_20200323_1912
+timeline\migrations\0011_auto_20200323_1912.py:1:0: C0103: Module name "0011_auto_20200323_1912" doesn't conform to snake_case naming style (invalid-name)
+timeline\migrations\0011_auto_20200323_1912.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+timeline\migrations\0011_auto_20200323_1912.py:6:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module timeline.migrations.__init__
+timeline\migrations\__init__.py:1:0: R0801: Similar lines in 5 files
+==timeline.migrations.0003_auto_20200304_2155:2
+==timeline.migrations.0004_auto_20200304_2231:2
+==timeline.migrations.0007_comment:3
+==timeline.migrations.0008_auto_20200304_2318:2
+==timeline.migrations.0009_auto_20200304_2322:2
+from django.conf import settings
+from django.db import migrations, models
+import django.db.models.deletion
+
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        migrations.swappable_dependency(settings.AUTH_USER_MODEL), (duplicate-code)
+
+-----------------------------------
+Your code has been rated at 2.04/10
