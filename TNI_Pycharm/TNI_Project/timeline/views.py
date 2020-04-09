@@ -101,6 +101,7 @@ def image_view(request):
 def image_like(request):
     if request.method == 'POST' and request.user.is_authenticated == True:
         imgObj = Image.objects.get(name=request.POST['name'])
+        #print("incrementing likes of "+imgObj.name)
         imgObj.likes += 1
         imgObj.save()
     return redirect(reverse('timeline-home'))
