@@ -33,6 +33,8 @@ Please see the following GitHub Issue for more information:
 
 https://github.com/AdrienKamran/SOEN-341_Totally_Not_Instagram/issues/46
 
+https://github.com/AdrienKamran/SOEN-341_Totally_Not_Instagram/blob/Adrien-1/TNI_Pycharm/TNI_Project/timeline/tests.py
+
 ## Acceptance Tests for Features
 
 As of the 8th of April 2020, our core features (plus some) have been tested.
