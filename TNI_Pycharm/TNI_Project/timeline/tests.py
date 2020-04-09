@@ -141,6 +141,7 @@ class PostTests(TestCase):
         self.user.save()
         self.factory = RequestFactory()
 
+    # Testing that clicking the "Create Post" button (with a filled form) actually creates a post object in the database:
     def test_post_creation(self):
         self.test_client.login(username='TestUser', password='TestPassword')
         with open("TNILogo.png", mode='rb') as ti:
@@ -152,3 +153,13 @@ class PostTests(TestCase):
         for p in Image.objects.all():
             test_post_name = p.name
         self.assertEqual(test_post_name, 'TestImage')
+
+    def test_post_redirect(self):
+        self.test_client.login(username='TestUser', password='TestPassword')
+        with open("TNILogo.png", mode='rb') as ti:
+            test_request = self.factory.post('/home/imageupload/', {'user': self.user, 'name': 'TestImage',
+                                                                        'Img': ti, 'caption': 'TestCaption'})
+        test_request.user = self.user
+        test_response = views.image_view(test_request)
+        test_response.client = Client()
+        self.assertRedirects(test_response, '/home/', target_status_code=302)
