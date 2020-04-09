@@ -1,4 +1,5 @@
 from django.test import TestCase, RequestFactory
+from django.http import HttpRequest
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -63,9 +64,7 @@ class RedirectTests(TestCase):
         test_response = views.signIn(test_request)
         test_response.client = Client()
         test_response.status_code
-        self.assertRedirects(test_response, '/home/', fetch_redirect_response=False)
-
-
+        self.assertRedirects(test_response, '/home/', target_status_code=302)
 
 
 class LikeTests(TestCase):
@@ -81,8 +80,6 @@ class LikeTests(TestCase):
         test_image = Image.objects.create(name='test_image', caption='test_caption', user=self.user,
                                           post_date='1990-10-09', likes='0')
         test_image.save()
-        #print(test_image.caption)
-        #test_request = self.test_client.post('/home/like/', {'name': 'test_image', 'method':'POST'})
         test_request = self.factory.post('/home/like/', {'name': 'test_image'})
         test_request.user = self.user
         test_request.client = Client()
@@ -95,13 +92,12 @@ class LikeTests(TestCase):
         test_image = Image.objects.create(name='test_image', caption='test_caption', user=self.user,
                                           post_date='1990-10-09', likes='0')
         test_image.save()
-        #print(test_image.caption)
-        #test_request = self.test_client.post('/home/like/', {'name': 'test_image', 'method':'POST'})
         test_request = self.factory.post('/home/like/', {'name': 'test_image'})
         test_request.user = self.user
         test_response = views.image_like(test_request)
         test_response.client = Client()
-        self.assertRedirects(test_response, '/home/', fetch_redirect_response=False)
+        self.assertRedirects(test_response, '/home/', target_status_code=302)
+
 
 class CommentTests(TestCase):
     def setUp(self):
@@ -125,5 +121,34 @@ class CommentTests(TestCase):
             test_comment_message = c.msg
         self.assertEqual(test_comment_message, 'Test Comment 1')
 
+    # Testing that clicking the "Submit Comment" button on a post refreshes the page and updates the information on the browser:
     def test_comment_redirect(self):
-        
+        test_image = Image.objects.create(name='test_image_comment_2', caption='test_caption', user=self.user,
+                                          post_date='1990-10-09', likes='0')
+        test_image.save()
+        test_request = self.factory.post('/home/comment/', {'user': self.user, 'msg': 'Test Comment 2',
+                                                            'post_date': '1990-10-09', 'img': 'test_image_comment_2'})
+        test_request.user = self.user
+        test_response = views.image_comment(test_request)
+        test_response.client = Client()
+        self.assertRedirects(test_response, '/home/', target_status_code=302)
+
+
+class PostTests(TestCase):
+    def setUp(self):
+        self.test_client = Client()
+        self.user = User.objects.create_user('TestUser', 'Tester@test.com', 'TestPassword')
+        self.user.save()
+        self.factory = RequestFactory()
+
+    def test_post_creation(self):
+        self.test_client.login(username='TestUser', password='TestPassword')
+        with open("TNILogo.png", mode='rb') as ti:
+            test_request = self.factory.post('/home/imageupload/', {'user': self.user, 'name': 'TestImage',
+                                                                        'Img': ti, 'caption': 'TestCaption'})
+        test_request.user = self.user
+        views.image_view(test_request)
+        test_post_name = 'default'
+        for p in Image.objects.all():
+            test_post_name = p.name
+        self.assertEqual(test_post_name, 'TestImage')
