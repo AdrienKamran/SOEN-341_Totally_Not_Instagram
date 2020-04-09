@@ -11,7 +11,6 @@ import datetime
 
 
 class AuthenticationTests(TestCase):
-    # Creating a test user:
     def setUp(self):
         self.test_client = Client()
         self.user = User.objects.create_user('TestUser', 'Tester@test.com', 'TestPassword')
@@ -154,6 +153,7 @@ class PostTests(TestCase):
             test_post_name = p.name
         self.assertEqual(test_post_name, 'TestImage')
 
+    # Testing that clicking the "Create Post" button (with a filled form) refreshes the page and updates the information on the browser:
     def test_post_redirect(self):
         self.test_client.login(username='TestUser', password='TestPassword')
         with open("TNILogo.png", mode='rb') as ti:
