@@ -5,13 +5,15 @@ import datetime
 class userProfile(models.Model):
 
     user = models.OneToOneField(User,on_delete=models.CASCADE)
-
-    portfolio = models.URLField(blank=True)
-    picture = models.ImageField(default='default.jpg', upload_to='profile_pics')
+    following = models.IntegerField(default=0)
+    followedBy = models.IntegerField(default=0)
     
-
     def __str__(self):
         return self.user.username
+
+class userFollowers(models.Model):
+    followedUser = models.ForeignKey(User,on_delete=models.CASCADE)
+    followerUser = models.CharField(max_length=1024)
 
 class Image(models.Model):
     name = models.CharField(max_length=50, unique=True)
