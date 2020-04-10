@@ -58,108 +58,93 @@
 		<section>
 			<div class="container">
 				<div class="row">
-					<div class="offset-1 col-3">
-						<img src="{{ user.userProfile.picture.url }}" class="img-fluid" width="168px" height="168px">
-					</div>
+					
 					<div class="col">
 						<div class="row mb-2">
 							<div class="col-4">
-								<h1>{{ user.username }}</h1>
+								<h1>{{ profile.user.username }}</h1>
 							</div>
 							<div class="col">
-								<button class="btn bg-info text-light">Follow</button>
-							</div>
-							<div class="col mb-0 pb-0">
-								<button class="btn bg-dark text-light">Following</button>
+								<form method="post" action="follow/">
+									{% csrf_token %}
+									<input type="hidden" name="targetUser" value={{ profile.user.username }} />
+									<a onclick="this.parentNode.submit();" class="btn bg-info text-light">Follow</a>
+								</form>
 							</div>
 						</div>
 						<div class="row mb-2">
 							<div class="col-1">
-								<p class="font-weight-bold">[#POSTS]</p>
+								<p class="font-weight-bold">{{ 23 }}</p>
 							</div>
 							<div class="col">
 								<p>posts</p>
 							</div>
 							<div class="col-1">
-								<p class="font-weight-bold">[#FLR]</p>
+								<p class="font-weight-bold">{{ numFollowers }}</p>
 							</div>
 							<div class="col">
 								<p>followers</p>
 							</div>
 							<div class="col-1">
-								<p class="font-weight-bold">[#FLI]</p>
+								<p class="font-weight-bold">{{ numFollowed }}</p>
 							</div>
 							<div class="col">
 								<p>following</p>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col">
-								<h2>[FULL NAME]</h2>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col">
-								<p>[USER BIOGRAPHY TEXT GOES HERE]</p>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
 		</section>
-		<section>
-			<div class="container">
-				<hr>
-			</div>
-		</section>
-		<section class="mb-3">
-			<div class="container">
-				<div class="row">
-					<div class="offset-3 col-6">
-						<div class="card mb-0">
-							<div class="card-header">📌 Pinned</div>
-							<img class="card-img-top img-thumbnail" alt="Card image cap" src="{% static 'timeline/TNI_Assets/erin-babnik-photography-990x556.jpg' %}">
-						</div>
+	
+		{% block postContent %}
+		{% for post in posts %}
+			<div class="card mb-3">
+				<img class="card-img-top w-100" src="{{ post.Img.url }}" alt="{{ post.name }}">
+				<div class="card-body">
+					<table class="table">
+						<tbody>
+							<tr>
+								<td class="w-25">
+									<div class="container">
+										<img src="{% static 'timeline/TNI_Assets/TNI-Logo.png' %}" class="w-50 h-50">
+									</div>
+								</td>
+								<td valign="middle" class="w-75 h-auto">
+									<h4 class="card-title align-self-center">{{ post.user }}</h4>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<p class="text-left text-muted">Posted on {{ post.post_date }}</p>
+					<p class="card-text">{{ post.name }}</p>
+					
+					<form method="post" action="like/">
+						{% csrf_token %}
+						<input type="hidden" name="name" value={{ post.name }} />
+						<a onclick="this.parentNode.submit();" class="btn btn-primary">LIKE</a> <p> {{ post.likes }}</p>
+					</form>
+					<hr>
+					<div class="container mt-3 w-100">
+						<form id={{ post.name }} method="post" action="comment/">
+							{% csrf_token %}
+							<input type="hidden" form={{ post.name }} name="img" value={{ post.name }} />
+							<textarea  name="msg" form={{ post.name }} id="text1" class="form-control" dmx-bind:placeholder="Have some thoughts about this post? Comment here!"></textarea>
+							<button type="submit" value="Comment" form={{ post.name }} class="btn bg-info mt-3 text-white">Submit Comment</button>
+						</form>
 					</div>
+					{% for comment in comments %}
+					<div>
+						{% if comment.img == post %}
+							{{ comment.post_date }} -- {{ comment.user }} -- {{ comment.msg }}
+						{% endif %}
+					</div>
+					{% endfor %}
+
 				</div>
 			</div>
-		</section>
-		<section>
-			<div class="container">
-				<div class="row mb-xl-3 row-cols-xl-3" is="dmx-masonry" id="masonry1" dmx-bind:repeat="1" preserve-order columns="3">
-					<div class="col mb-xl-3">
-						<img class="img-thumbnail img-fluid" src="{% static 'timeline/TNI_Assets/erin-babnik-photography-990x556.jpg' %}">
-					</div>
-					<div class="col mb-xl-3">
-						<img class="img-thumbnail img-fluid" src="{% static 'timeline/TNI_Assets/nathan-lee-allen-landscape-feature-1024x464.jpg' %}">
-					</div>
-					<div class="col mb-xl-3">
-						<img class="img-thumbnail img-fluid" src="{% static 'timeline/TNI_Assets/landscape_photography.jpg' %}">
-					</div>
-					<div class="col mb-xl-3">
-						<img class="img-thumbnail img-fluid" src="{% static 'timeline/TNI_Assets/6.ngsversion.1467942028599.adapt.1900.1.jpg' %}">
-					</div>
-					<div class="col mb-xl-3">
-						<img class="img-thumbnail img-fluid" src="{% static 'timeline/TNI_Assets/Mass.jpg' %}">
-					</div>
-					<div class="col mb-xl-3">
-						<img class="img-thumbnail img-fluid" src="{% static 'timeline/TNI_Assets/erin-babnik-photography-990x556.jpg' %}">
-					</div>
-					<div class="col mb-xl-3">
-						<img class="img-thumbnail img-fluid" src="{% static 'timeline/TNI_Assets/nathan-lee-allen-landscape-feature-1024x464.jpg' %}">
-					</div>
-					<div class="col mb-xl-3">
-						<img class="img-thumbnail img-fluid" src="{% static 'timeline/TNI_Assets/landscape_photography.jpg' %}">
-					</div>
-					<div class="col mb-xl-3">
-						<img class="img-thumbnail img-fluid" src="{% static 'timeline/TNI_Assets/6.ngsversion.1467942028599.adapt.1900.1.jpg' %}">
-					</div>
-					<div class="col mb-xl-3">
-						<img class="img-thumbnail img-fluid" src="{% static 'timeline/TNI_Assets/Mass.jpg' %}">
-					</div>
-				</div>
-			</div>
-		</section>
+		{% endfor %}
+		{% endblock postContent %}
 	</main>
 	<script src="{% static 'timeline/bootstrap/4/js/popper.min.js' %}"></script>
 	<script src="{% static 'timeline/bootstrap/4/js/bootstrap.min.js' %}"></script>

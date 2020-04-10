@@ -6,8 +6,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from timeline.forms import userProfileForm,userForm, ImageForm, CommentForm
-from timeline.models import Image, Comment
+from timeline.models import Image, Comment, userProfile, userFollowers
 from django.views.generic import ListView
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
@@ -53,8 +54,39 @@ def home(request):
     return render(request, 'timeline/home_test.html',context)
 
 
-def userprofile(request):
+def viewuserprofile(request):
+    if request.method == 'POST' and request.user.is_authenticated == True:
+        userObj = User.objects.get(username=request.POST['targetUser'])
+        profile = userProfile.objects.get(user=userObj)
+
+        followingObj = list(userFollowers.objects.filter(followedUser=userObj, followerUser=request.user))
+        userPosts = []
+        if(len(followingObj) != 0):
+            userPosts = list(Image.objects.filter(user=userObj))
+
+        numFollowers = len(list(userFollowers.objects.filter(followedUser=userObj)))
+        numFollowed = len(list(userFollowers.objects.filter(followerUser=userObj)))
+        numposts = len(list(Image.objects.filter(user=request.user)))
+
+        context = {
+            'profile': profile,
+            'numFollowers': numFollowers,
+            'numFollowed': numFollowed,
+            'numposts': numposts,
+            'posts': userPosts,
+            'comments': Comment.objects.all(),
+        }
+        return render(request, "timeline/profile.html", context)
     return render(request, "timeline/profile.html")
+
+def viewuserfollow(request):
+    if request.method == 'POST' and request.user.is_authenticated == True:
+        userObj = User.objects.get(username=request.POST['targetUser'])
+        followingObj = list(userFollowers.objects.filter(followedUser=userObj, followerUser=request.user))
+        if(len(followingObj) == 0):
+            newFollow = userFollowers(followedUser=userObj, followerUser=request.user)
+            newFollow.save()
+        return viewuserprofile(request)
 
 def register(request):
     form = forms.userForm()
@@ -67,12 +99,16 @@ def registerUser(request):
     if request.method == "POST":
 
        user_registration = userForm(data=request.POST)
-
+       
        if user_registration.is_valid():
-
            user = user_registration.save()
            user.set_password(user.password)
            user.save()
+           userPro = userProfile(user=user)
+           userPro.save()
+           newFollow = userFollowers(followedUser=user, followerUser=user)
+           newFollow.save()
+
            registered = True
        else:
           print(user_registration.errors)
@@ -112,7 +148,9 @@ def image_comment(request):
 
         if form.is_valid():
             comObj = form.save(commit=False)
-            imgObj = Image.objects.get(name=request.POST['img'])
+            #imgObj = Image.objects.get(name=request.POST['img'])
+            imgObj = get_object_or_404(Image, name=request.POST['img'])
+            print(request.POST['img'])
             comObj.user = request.user
             comObj.img = imgObj
             comObj.save()

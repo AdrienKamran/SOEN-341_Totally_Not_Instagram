@@ -14,7 +14,11 @@ urlpatterns = [
     path('home/imageupload/', views.image_view, name='image_view'),
     path('home/like/', views.image_like, name='image_like'),
     path('home/comment/', views.image_comment, name='image_comment'),
-    path('profile/', views.userprofile, name='timeline-about'),
+    path('home/profile/', views.viewuserprofile, name='timeline-profile'),
+    path('home/profile/follow/', views.viewuserfollow, name='timeline-follow'),
+    path('home/profile/comment/', views.image_comment, name='profile_image_comment'),
+    path('home/profile/like/', views.image_like, name='profile_image_like'),
+
 
     path('about/', views.about, name='timeline-about'),
     

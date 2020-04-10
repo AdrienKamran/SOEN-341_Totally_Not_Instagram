@@ -62,7 +62,11 @@
                                 </div>
                             </td>
                             <td valign="middle" class="w-75 h-auto">
-                                <h4 class="card-title align-self-center">{{ post.user }}</h4>
+								<form method="post" action="profile/">
+									{% csrf_token %}
+									<input type="hidden" name="targetUser" value={{ post.user }} />
+									<a onclick="this.parentNode.submit();" class="btn btn-primary">{{ post.user }}</a>
+								</form>
                             </td>
                         </tr>
                     </tbody>
@@ -79,7 +83,7 @@
                 <div class="container mt-3 w-100">
                     <form id={{ post.name }} method="post" action="comment/">
 						{% csrf_token %}
-						<input type="hidden" form={{ post.name }} name="img" value={{ post.name }} />
+						<input type="hidden" form={{ post.name }} name="img" value={{ post.name }} more={{ post }} />
                         <textarea  name="msg" form={{ post.name }} id="text1" class="form-control" dmx-bind:placeholder="Have some thoughts about this post? Comment here!"></textarea>
                         <button type="submit" value="Comment" form={{ post.name }} class="btn bg-info mt-3 text-white">Submit Comment</button>
                     </form>
